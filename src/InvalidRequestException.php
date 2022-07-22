@@ -23,6 +23,7 @@ class InvalidRequestException extends \Exception
     public function addError($error): void
     {
         $this->errors[] = $error;
+        $this->message = $this->getErrors();
     }
 
 
