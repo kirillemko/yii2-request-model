@@ -2,7 +2,9 @@
 
 namespace kirillemko\RequestModel;
 
-class InvalidRequestException extends \Exception
+use yii\web\BadRequestHttpException;
+
+class InvalidRequestException extends BadRequestHttpException
 {
     /** @var RequestFieldError[] */
     private $errors = [];
@@ -31,4 +33,11 @@ class InvalidRequestException extends \Exception
     {
         return $this->errors;
     }
+
+
+    public function __toString()
+    {
+        return json_encode($this->message) ?: '';
+    }
+
 }
