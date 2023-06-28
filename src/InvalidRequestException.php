@@ -25,7 +25,6 @@ class InvalidRequestException extends BadRequestHttpException
     public function addError($error): void
     {
         $this->errors[] = $error;
-        $this->message = $this->getErrors();
     }
 
 
