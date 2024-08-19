@@ -15,12 +15,12 @@ class RequestModel extends Model
         }
     }
 
-    public function load($data=null, $formName = null)
+    public function load($data=null, $formName = '')
     {
         if( !$data ){
             $data = \Yii::$app->request->isGet ? \Yii::$app->request->get() : \Yii::$app->request->getBodyParams();
         }
-        parent::load($data, '');
+        parent::load($data, $formName);
         return $this;
     }
 
